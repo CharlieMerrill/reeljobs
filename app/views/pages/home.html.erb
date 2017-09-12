@@ -1,51 +1,8 @@
-<div class="banner text-center">
-  <div class="mole-banner">
-    <%= cl_image_tag "moleywood_background_banner_ctll5z", size: "1000x500" %>
-    <div class="rel">
-      <div class="mole-image" >
-        <div class="mole-head">
-          <%= cl_image_tag "agent_moleder_body_lecmrw", class: 'mole-body ', id: "mole" %>
-        </div>
-        <div class="mole-dirt">
-          <%= cl_image_tag "agent_moleder_dirt_akjgfz", class: 'mole-body' %>
-        </div>
-      </div>
-    </div>
-     <div class="giant-mole-head">
-          <%= cl_image_tag "agent_moleder_body_lecmrw", class: "expandUp", id: "mole-big"%>
-          <div class="mole-dirt">
-          <%= cl_image_tag "agent_moleder_dirt_akjgfz", class: 'mole-body' %>
-        </div>
-    </div>
+<div class="banner" style="background-image: url(<%=image_path('camera_banner.jpg')%>">
+  <div class="banner-content">
+    <h3 class="tagline">Find work experience on film projects.</h3>
+    <%= link_to "Search For Projects", projects_path, class:"btn btn-primary btn-lg search-home" %>
   </div>
-
-
-
-  <div class="row">
-    <h2>Can you dig it?</h2>
-  </div>
-  <div class="row">
-    <h3>Find work experience in the film sector</h3>
-  </div>
-
-  <br>
-
-<%= link_to "Dig a project", projects_path, class:"btn btn-primary btn-lg" %>
-
 </div>
-
-<%= content_for(:after_js) do %>
-  <%= javascript_tag do %>
-
-    function doStuff() {
-      $(document).ready(function() {
-        $('#mole').toggleClass('expandUp');
-        $('#mole-big').toggleClass('expandUp');
-      });
-      setTimeout(doStuff, 5000);
-   }
-   doStuff();
-  <% end %>
-<% end %>
 
 
