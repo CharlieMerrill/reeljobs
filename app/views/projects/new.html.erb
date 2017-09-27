@@ -1,38 +1,41 @@
-<div class="container container-form">
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>New Project</h1>
-    </div>
-  </div>
-  <hr>
-  <%= simple_form_for @project do |f| %>
+<div class="banner banner-new-project" style="background-image: url(<%=image_path('form-background2.jpg')%>">
+  <div class="container container-form">
     <div class="row">
-      <div class="col-xs-12 center-text">
-        <%=f.input :title, :input_html => {:placeholder => "Enter title here"}, :label => "Title" %>
+      <div class="col-xs-12">
+        <h1>Lights. Camera. Action!</h1>
       </div>
-      </div>
+    </div>
+    <hr>
+    <%= simple_form_for @project do |f| %>
       <div class="row">
         <div class="col-xs-12 center-text">
-          <%=f.input :description, :input_html => {:placeholder => "Describe your project"}, :label => "Description" %>
+          <%=f.input :title, :input_html => {:placeholder => "Enter title here"}, :label => "Title" %>
         </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 center-text">
+            <%=f.input :description, :input_html => {:placeholder => "Describe your project"}, :label => "Description" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <%=f.input :schedule %>
+          </div>
+          <div class="col-xs-6">
+            <%=f.input :location, :input_html => {:placeholder => "City"}, :label => "Location" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+          </div>
+          <div class="col-xs-4">
+            <%= f.submit "Create Project", class: 'button btn btn-primary' %>
+          </div>
+          <div class="col-xs-4">
+          </div>
+        </div>
+        <br>
       </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <%=f.input :schedule %>
-        </div>
-        <div class="col-xs-6">
-          <%=f.input :location, :input_html => {:placeholder => "City"}, :label => "Location" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4">
-        </div>
-        <div class="col-xs-4">
-          <%= f.submit "Burrow Project", class: 'button btn btn-primary' %>
-        </div>
-        <div class="col-xs-4">
-        </div>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
