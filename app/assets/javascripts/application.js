@@ -9,6 +9,3 @@
 
 //= require_tree .
 
-
-
-
