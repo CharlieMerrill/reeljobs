@@ -18,18 +18,3 @@
    	<button type="button" class="btn btn-danger btn-lg">Feeling Generous</button>
 
 </div>
-
-
-<%= content_for(:after_js) do %>
-	<script>
-		$(document).ready(function() {
-			$(".mode").keyup(function(e){
-				if(e.keyCode === 77)
-					$(".mode").toggleClass("mole");
-			});
-			$(".mode").mousemove(function(e){
-				$(".mode").css('background-position',(e.pageX - 250)+'px '+(e.pageY - 250)+'px');
-			});
-		});
-	</script>
-<% end %>
