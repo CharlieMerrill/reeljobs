@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-
+    <%= image_tag 'logo.png' %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -10,7 +10,6 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "DONATE", pages_path, class:"btn btn-danger"%>
       <%= link_to "Search", projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "New Project", new_project_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
