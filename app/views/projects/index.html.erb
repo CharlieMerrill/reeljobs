@@ -6,23 +6,22 @@
 		<%= form_tag(projects_path, method: :get, id: "search-form") do %>
 			<div class="col-xs-3 container_searchfield">
 			<label for="container_searchfield">Where</label>
-				<%= text_field_tag :search, value = "", name: "search[location]" , placeholder: "Anywhere", class: "form-control" %>
+				<%= text_field_tag :search, value = "", name: "search[location]" , placeholder: "City", class: "form-control" %>
 			</div>
-		        <div class="col-xs-3 date">
-		           	<label for="date">When</label>
-		            <div class="input-group input-append date" id="datePicker">
-		                <%= text_field_tag "search[schedule]", {}, placeholder: "Anytime", value: params[:search][:schedule], class: "form-control" %>
-		                <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-		            </div>
-		        </div>
-
+      <div class="col-xs-3 date">
+       	<label for="date">When</label>
+        <div class="input-group input-append date" id="datePicker">
+            <%= text_field_tag "search[schedule]", {}, placeholder: "Date", value: params[:search][:schedule], class: "form-control" %>
+            <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
+      </div>
 			<div class="col-xs-3">
 		    <label for="searchbar_dropdown">Role</label>
 				<%= collection_select(:search, :skill_id, Skill.all.order("title ASC"), :id, :title, {:prompt => ""}, class: "form-control" ) %>
 		  	</div>
 
 			<div class="col-xs-3" id="search_button">
-				<%= submit_tag "Dig for projects", name: nil, class: 'btn btn-primary' %>
+				<%= submit_tag "Search for projects", name: nil, class: 'btn btn-primary' %>
 				<% end 	%>
 		    </div>
 		</div>
