@@ -1,16 +1,10 @@
-.description {
-  background-color: white;
-  border-radius: 5px;
-  margin: 5px;
-  margin-bottom: 20px;
-  height: 400px;
-  overflow-y: auto;
-  box-shadow: 2px 2px 2px #CECECE;
-  padding: 20px;
-}
-
 .form {
   margin: 20px ;
+}
+
+.word {
+  text-align: right;
+  color: #878787;
 }
 
 a {
@@ -26,13 +20,13 @@ a:hover {
 .title {
   display: flex;
   justify-content: space-between;
-   background-color: white;
+  background-color: white;
   border-radius: 5px;
   margin: 5px;
   margin-bottom: 20px;
   margin-top: 20px;
-  box-shadow: 2px 2px 2px #CECECE;
   padding: 20px;
+  border-bottom: 1px solid #BDBDBD;
 }
 
 h1 {
