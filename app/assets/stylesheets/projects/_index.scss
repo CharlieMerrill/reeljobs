@@ -1,3 +1,19 @@
  // Import page-specific CSS files here.
 //@import "new";
 @import "show";
+
+.body {
+  background-color: white;
+}
+
+.jobs-title {
+  border-bottom: 1px solid #BFBFBF;
+  padding-bottom: 10px;
+}
+
+.container_searchbar {
+  margin-top: -2px;
+  height: 30px;
+}
+
+

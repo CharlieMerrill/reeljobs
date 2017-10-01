@@ -1,13 +1,13 @@
-
 <div class="container">
-<h1 class="text-center" >Jobs</h1>
-	<div class="container_searchbar col-xs-12">
-		<div class="form-group">
-		<%= form_tag(projects_path, method: :get, id: "search-form") do %>
-			<div class="col-xs-3 container_searchfield">
-			<label for="container_searchfield">Where</label>
-				<%= text_field_tag :search, value = "", name: "search[location]" , placeholder: "City", class: "form-control" %>
-			</div>
+  <div class="top-image"><%= image_tag('search-image.jpeg', width: '100%') %></div>
+  <h1 class="text-center jobs-title">Jobs</h1>
+  <div class="container_searchbar col-xs-12">
+  	<div class="form-group">
+  	<%= form_tag(projects_path, method: :get, id: "search-form") do %>
+  		<div class="col-xs-3 container_searchfield">
+  		<label for="container_searchfield">Where</label>
+  			<%= text_field_tag :search, value = "", name: "search[location]" , placeholder: "City", class: "form-control" %>
+  		</div>
       <div class="col-xs-3 date">
        	<label for="date">When</label>
         <div class="input-group input-append date" id="datePicker">
@@ -15,25 +15,23 @@
             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
       </div>
-			<div class="col-xs-3">
-		    <label for="searchbar_dropdown">Role</label>
-				<%= collection_select(:search, :skill_id, Skill.all.order("title ASC"), :id, :title, {:prompt => ""}, class: "form-control" ) %>
-		  	</div>
+  		<div class="col-xs-3">
+  	    <label for="searchbar_dropdown">Role</label>
+  			<%= collection_select(:search, :skill_id, Skill.all.order("title ASC"), :id, :title, {:prompt => ""}, class: "form-control" ) %>
+  	  </div>
 
-			<div class="col-xs-3" id="search_button">
-				<%= submit_tag "Search for projects", name: nil, class: 'btn btn-primary' %>
-				<% end 	%>
-		    </div>
-		</div>
-	</div>
+  		<div class="col-xs-3" id="search_button">
+  			<%= submit_tag "Search for projects", name: nil, class: 'btn btn-primary' %>
+  			<% end 	%>
+  	  </div>
+  	</div>
+  </div>
 
-<% if @jobs.any? %>
-
-		<%= render "project" , projects_by_subject: @jobs %>
-
-<% else %>
-	<p>There are no projects containing the term(s) <%= params[:search] %></p>
-<% end %>
+  <% if @jobs.any? %>
+  	<%= render "project" , projects_by_subject: @jobs %>
+  <% else %>
+  	<p>There are no projects available.</p>
+  <% end %>
 </div>
 
 
