@@ -1,5 +1,14 @@
 .form {
-  margin: 20px ;
+  margin-bottom: 10px;
+  margin-top: -25px;
+}
+
+.clickable-name {
+  color: blue;
+}
+
+.clickable-name:hover {
+  color: #148CFF;
 }
 
 .word {
