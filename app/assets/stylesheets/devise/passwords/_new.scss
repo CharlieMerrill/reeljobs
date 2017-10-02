@@ -1,19 +1,11 @@
-.edit-container {
+.password-container {
   width: 50%;
   color: white;
   text-shadow: 1px 1px 1px #828282;
-  margin-top: -5%;
+  margin-top: -10%;
   h2 {
     text-align: center;
   }
-}
-
-h2 {
-  text-align: center;
-}
-
-.edit-banner{
-  height: 150vh;
 }
 
 .devise-shared-links a {
@@ -26,7 +18,7 @@ h2 {
   text-shadow: 1px 1px 1px #828282;
 }
 
-.password-min {
-  color: white;
+.form-actions {
+  display: flex;
+  justify-content: center;
 }
-

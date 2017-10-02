@@ -1,7 +1,30 @@
 .signup-container {
-  width: 90vh;
-  background-color: white;
-  margin: 20px auto;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px #CFCFCF;
+  width: 50%;
+  color: white;
+  text-shadow: 1px 1px 1px #828282;
+  h2 {
+    text-align: center;
+  }
+}
+
+.signup-banner {
+  height: 100vh;
+}
+
+.devise-shared-links a {
+  color: white;
+  text-shadow: 1px 1px 1px #828282;
+}
+
+.devise-shared-links a:hover {
+  color: #D1D1D1;
+  text-shadow: 1px 1px 1px #828282;
+}
+
+.line-shadow {
+  box-shadow: 1px 1px 1px #828282;
+}
+
+.password-min {
+  color: white;
 }
