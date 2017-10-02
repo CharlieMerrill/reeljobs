@@ -6,8 +6,4 @@ class Project < ApplicationRecord
   validates :description, presence: true
   validates :schedule, presence: true
   validates :location, presence: true
-
-
-
-
 end
