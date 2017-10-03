@@ -1,17 +1,52 @@
-.stat {
+.profile-info {
+  margin-top: -50px;
+  margin-left: 50px;
+  width: 180px;
   background-color: white;
-  margin: 10px;
-  height: 400px;
-  margin-left: 30px;
-  box-shadow: 2px 2px 2px #CECECE;
+  border-radius: 5px;
 }
 
-.stat-content {
-  height: 400px;
-  text-align: center;
-  overflow-y: auto;
-  padding: 5px;
+.profile-info-content {
+  margin-top: 10px;
+  p {
+    font-size: 12px;
+    color: #616161;
+  }
+}
 
+.profile .tab {
+  text-align: center;
+  text-decoration: none;
+}
+
+.tab-box.active {
+  border-bottom: 3px solid $blue;
+}
+
+.tab-box:hover {
+  border-bottom: 3px solid $blue;
+}
+
+.tab-box a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.tab-box {
+  height: 55px;
+  margin-left: 20px;
+  width: 80px;
+}
+
+.button-word {
+  color: #657786;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.profile-avatar {
+  border-radius: 5px;
 }
 
 .list{
@@ -20,21 +55,4 @@
 
 .reviews {
   margin-top: 10px;
-}
-
-#component-1{
-  margin-top: 20px;
-}
-
-#User_Header{
-  height:80px;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#mole-user{
-
-z-index: -1;
 }
