@@ -20,22 +20,35 @@
 }
 
 .tab-box.active {
-  border-bottom: 3px solid $blue;
+  border-bottom: 3px solid #3781E0;
+  p {
+    color: #3781E0;
+  }
 }
 
 .tab-box:hover {
-  border-bottom: 3px solid $blue;
+  border-bottom: 3px solid #3781E0;
+  p {
+    color: #3781E0;
+  }
 }
 
 .tab-box a {
   text-decoration: none;
   text-align: center;
+  p {
+    font-size: 14px;
+  }
 }
 
 .tab-box {
-  height: 55px;
+  height: 30px;
   margin-left: 20px;
   width: 80px;
+}
+
+.tab-content {
+  margin-top: 20px;
 }
 
 .button-word {
@@ -47,6 +60,14 @@
 
 .profile-avatar {
   border-radius: 5px;
+}
+
+.clickable-name {
+  color: blue;
+}
+
+.clickable-name:hover {
+  color: #148CFF;
 }
 
 .list{

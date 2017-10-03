@@ -8,11 +8,13 @@
       <div class="profile-info-content">
         <%= cl_image_tag user_avatar(@user), width: 150, height: 150, class: "profile-avatar" %>
         <h5><%= @user.first_name %> <%= @user.last_name%></h4>
-        <p><i class="fa fa-map-marker" aria-hidden="true"></i> </p>
-        <p><i class="fa fa-calendar" aria-hidden="true"></i> Joined </p>
-        <p><i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn</p>
-        <p><i class="fa fa-facebook-square" aria-hidden="true"></i> FaceBook</p>
-        <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn btn-primary" %>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.location %></p>
+        <p><i class="fa fa-calendar" aria-hidden="true"></i> Joined <%= @user.created_at.strftime("%B %Y") %></p>
+        <p><i class="fa fa-linkedin-square" aria-hidden="true"></i> <%= link_to "LinkedIn", @user.linkedin, class: "clickable-name" %></p>
+        <p><i class="fa fa-facebook-square" aria-hidden="true"></i> <%= link_to "Facebook", @user.facebook, class: "clickable-name" %></p>
+        <% if @user == current_user %>
+          <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
     <div class="col-sm-1">
@@ -39,12 +41,10 @@
     <div class="row">
       <div class="col-xs-7">
         <div class="tab-content active" id="bio">
-          <p>Bio</p>
           <p><%= @user.bio%></p>
         </div>
-        <div class="tab-content" id="reviews">
-          <p>reviews</p>
-          <% current_user.responses.each do |response| %>
+        <div class="tab-content hidden" id="reviews">
+          <% @user.responses.each do |response| %>
             <div class="list-group">
               <li class="list-group-item">
               <div class="list-group-item-header">
@@ -52,18 +52,20 @@
               </div>
               <% if response.job.job_review %>
                 <%= response.job.job_review.content   %>
-                        <p><% response.job.job_review.rating.times do %><i style="color: #e5d200;" class="fa fa-star" aria-hidden="true"></i><% end %></p>
+                  <p><% response.job.job_review.rating.times do %><i style="color: #e5d200;" class="fa fa-star" aria-hidden="true"></i><% end %></p>
               <% end %>
               </li>
             </div>
           <% end %>
         </div>
-        <div class="tab-content" id="projects">
-          <% current_user.projects.each do |project| %>
+        <div class="tab-content hidden" id="projects">
+          <% @user.projects.each do |project| %>
             <div class="list-group">
               <li class="list-group-item">
               <div class="list-group-item-header">
-                <%= project.title %>
+                <%= link_to project, class: "clickable-name" do %>
+                  <%= project.title %>
+                <% end %>
               </div>
               </li>
             </div>

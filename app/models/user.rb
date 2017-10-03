@@ -26,14 +26,19 @@ class User < ApplicationRecord
     return user
   end
 
-has_many :projects
-has_many :applicants
-has_many :user_skills
-has_many :responses
-has_attachment :profile_picture
-validates :email, presence: true, uniqueness: true
-validates :first_name, presence: true
-validates :last_name, presence: true
+  has_many :projects
+  has_many :applicants
+  has_many :user_skills
+  has_many :responses
+  has_attachment :profile_picture
+  validates :email, presence: true, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates_length_of :first_name, :maximum => 40
+  validates_length_of :last_name, :maximum => 40
+  validates_length_of :location, :maximum => 60
+  validates_format_of :facebook, :with => /http(?:s)?:\/\/(?:www.)?facebook\.com\/([a-zA-Z0-9_]+)/, :allow_blank => true
+  validates_format_of :linkedin, :with => /http(?:s)?:\/\/(?:www.)?linkedin\.com\/([a-zA-Z0-9_]+)/, :allow_blank => true
 end
 
 
