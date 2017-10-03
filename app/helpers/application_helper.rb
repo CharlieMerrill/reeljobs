@@ -5,7 +5,7 @@ module ApplicationHelper
     elsif user.facebook_picture_url.present?
       return user.facebook_picture_url
     else
-      return "https://image.flaticon.com/icons/png/512/78/78373.png"
+      return image_path 'avatar.jpg'
     end
   end
 end

@@ -1,69 +1,75 @@
-<div class="page">
+<div class="top-image"><%= image_tag('hollywood.jpeg', height: '120', width: '100%') %></div>
+<div class="row twitter-bar hidden-xs">
 
-  <div class="container">
-    <div class="row">
-      <div class="stat col-xs-11" id="User_Header">
-        <h1></h1>
-        <h1>Profile</h1>
-        <%= cl_image_tag "wnflcbsbd1ksem8yvjrr", width: 50, height: 50, id: "pencil" %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="profile-info col-xs-4">
+      <div class="profile-info-content">
+        <%= cl_image_tag user_avatar(@user), width: 150, height: 150, class: "profile-avatar" %>
+        <h5><%= @user.first_name %> <%= @user.last_name%></h4>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.location %></p>
+        <p><i class="fa fa-calendar" aria-hidden="true"></i> Joined <%= @user.created_at.strftime("%B %Y") %></p>
+        <p><i class="fa fa-linkedin-square" aria-hidden="true"></i> <%= link_to "LinkedIn", @user.linkedin, class: "clickable-name" %></p>
+        <p><i class="fa fa-facebook-square" aria-hidden="true"></i> <%= link_to "Facebook", @user.facebook, class: "clickable-name" %></p>
+        <% if @user == current_user %>
+          <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="first-tab tab-box active">
+        <a class="profile tab active" data-target="#bio">
+          <p class="button-word">About Me</p>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="tab-box">
+        <a class="profile tab" data-target="#reviews">
+          <p class="button-word">Reviews</p>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="tab-box">
+        <a class="profile tab" data-target="#projects">
+          <p class="button-word">Projects</p>
+        </a>
       </div>
     </div>
     <div class="row">
-      <div class="stat col-xs-4">
-        <div class="stat-content" >
-        <% if @user.profile_picture? %>
-        <%= cl_image_tag @user.profile_picture.path, width: 280, height: 280,  gravity: "face", radius:"max",  crop: "crop" %>
-        <% end %>
-          <h4><%= @user.first_name %> <%= @user.last_name%></h4>
-
-          <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn btn-primary" %>
+      <div class="col-xs-7">
+        <div class="tab-content active" id="bio">
+          <p><%= @user.bio%></p>
         </div>
-      </div>
-      <div class="stat col-xs-7">
-        <div class="stat-content" id = "component-2">
-          <h3>Biography</h3>
-          <% render 'user_info' %>
-              <p><%= @user.bio%></p>
-        </div>
-
-      </div>
-      </div>
-      <div class="row">
-        <div class="stat col-xs-4">
-          <div class="stat-content">
-            <div class ="reviews">
-              <h4>Projects</h4>
+        <div class="tab-content hidden" id="reviews">
+          <% @user.responses.each do |response| %>
+            <div class="list-group">
+              <li class="list-group-item">
+              <div class="list-group-item-header">
+                <%= response.job.skill.title %>
+              </div>
+              <% if response.job.job_review %>
+                <%= response.job.job_review.content   %>
+                  <p><% response.job.job_review.rating.times do %><i style="color: #e5d200;" class="fa fa-star" aria-hidden="true"></i><% end %></p>
+              <% end %>
+              </li>
             </div>
-            <% current_user.projects.each do |project| %>
-              <div class="list-group">
-                <li class="list-group-item">
-                <div class="list-group-item-header">
+          <% end %>
+        </div>
+        <div class="tab-content hidden" id="projects">
+          <% @user.projects.each do |project| %>
+            <div class="list-group">
+              <li class="list-group-item">
+              <div class="list-group-item-header">
+                <%= link_to project, class: "clickable-name" do %>
                   <%= project.title %>
-                </div>
-                </li>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="stat col-xs-7">
-          <div class="stat-content">
-            <div class="reviews">
-              <h4>Job Reviews</h4>
-            </div>
-            <% current_user.responses.each do |response| %>
-              <div class="list-group">
-                <li class="list-group-item">
-                <div class="list-group-item-header">
-                  <%= response.job.skill.title %>
-                </div>
-                <% if response.job.job_review %>
-                  <%= response.job.job_review.content   %>
-                          <p><% response.job.job_review.rating.times do %><i style="color: #e5d200;" class="fa fa-star" aria-hidden="true"></i><% end %></p>
                 <% end %>
-                </li>
               </div>
-            <% end %>
-          </div>
+              </li>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
