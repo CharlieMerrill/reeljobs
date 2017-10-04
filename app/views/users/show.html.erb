@@ -12,8 +12,8 @@
         <p><i class="fa fa-calendar" aria-hidden="true"></i> Joined <%= @user.created_at.strftime("%B %Y") %></p>
         <p><i class="fa fa-linkedin-square" aria-hidden="true"></i> <%= link_to "LinkedIn", @user.linkedin, class: "clickable-name" %></p>
         <p><i class="fa fa-facebook-square" aria-hidden="true"></i> <%= link_to "Facebook", @user.facebook, class: "clickable-name" %></p>
-        <% if @user == current_user %>
-          <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn btn-primary" %>
+        <% if @user == current_user%>
+          <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <%= link_to 'Edit', edit_user_registration_path(@user), class: "clickable-name" %></p>
         <% end %>
       </div>
     </div>
