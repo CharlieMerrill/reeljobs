@@ -1,6 +1,7 @@
 <div class="banner signup-banner" style="background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(<%=image_path('forgot-password.jpeg')%>">
   <div class="container password-container">
     <h2>Forgot Password</h2>
+    <hr class="line-shadow">
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs">
