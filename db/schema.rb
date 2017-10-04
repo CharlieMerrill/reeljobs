@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003193006) do
+ActiveRecord::Schema.define(version: 20171004204441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,12 +28,6 @@ ActiveRecord::Schema.define(version: 20171003193006) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
-  end
-
-  create_table "dates", force: :cascade do |t|
-    t.integer "project_id"
-    t.date    "date"
-    t.index ["project_id"], name: "index_dates_on_project_id", using: :btree
   end
 
   create_table "host_reviews", force: :cascade do |t|
