@@ -19,9 +19,15 @@
 }
 
 .button {
-  margin: 15px;
+  margin-top: 15px;
+  width: 200px;
 }
 
 .line-shadow {
   box-shadow: 1px 1px 1px #828282;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
 }

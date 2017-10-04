@@ -29,12 +29,13 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-4">
-        </div>
-        <div class="col-xs-4">
+        <div class="button-row">
           <%= f.submit "Go To Project", class: 'button btn btn-primary' %>
         </div>
-        <div class="col-xs-4">
+        <div class="button-row">
+          <% if params[:action] == 'edit' || params[:action] == 'update' %>
+            <%= link_to 'Delete Project' .html_safe, project_path(@project), class: 'button btn btn-danger del' , method: :delete, data: { confirm: 'Are you sure you want to delete your project?' } %>
+          <% end %>
         </div>
       </div>
       <br>
