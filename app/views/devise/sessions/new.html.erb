@@ -1,18 +1,12 @@
-<div class="banner login-banner" style="background-image: url(<%=image_path('form-background3.jpg')%>">
+<div class="banner login-banner" style="background-image: url(<%=image_path('form-background3.jpeg')%>">
   <div class="container login-container">
-    <h2>Log in</h2>
+    <h2>Welcome Back</h2>
     <hr class="line-shadow">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= f.input :email, required: false, autofocus: true %>
         <%= f.input :password, required: false %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        <div class="col-xs-4">
-        </div>
-        <div class="col-xs-4">
-          <%= f.button :submit, "Log in", class: "btn btn-primary" %>
-        </div>
-        <div class="col-xs-4">
-        </div>
+        <%= f.button :submit, "Log in", class: "wide-button btn btn-primary" %>
     <% end %>
     <br>
     <br>

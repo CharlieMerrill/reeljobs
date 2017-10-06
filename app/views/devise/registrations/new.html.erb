@@ -15,15 +15,7 @@
         <%= f.input :email, required: true, autofocus: true %>
         <%= f.input :password, hint_html: { class: 'password-min' }, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
         <%= f.input :password_confirmation, required: true %>
-        <div class="row">
-          <div class="col-xs-4">
-          </div>
-          <div class="col-xs-4">
-            <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
-          </div>
-          <div class="col-xs-4">
-          </div>
-        </div>
+        <%= f.button :submit, "Sign up", class: "wide-button btn btn-primary" %>
     <% end %>
     <br>
     <div class="devise-shared-links">
