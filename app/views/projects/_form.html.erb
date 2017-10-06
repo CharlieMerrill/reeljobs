@@ -29,15 +29,18 @@
         </div>
       </div>
       <div class="row">
-        <div class="button-row">
-          <%= f.submit "Go To Project", class: 'button btn btn-primary' %>
+        <div class="col-xs-12">
+          <%= f.submit "Go To Project", class: 'wide-button btn btn-primary' %>
         </div>
-        <div class="button-row">
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-12">
           <% if params[:action] == 'edit' || params[:action] == 'update' %>
-            <%= link_to 'Delete Project' .html_safe, project_path(@project), class: 'button btn btn-danger del' , method: :delete, data: { confirm: 'Are you sure you want to delete your project?' } %>
+            <%= link_to 'Delete Project' .html_safe, project_path(@project), class: 'wide-button btn btn-danger del' , method: :delete, data: { confirm: 'Are you sure you want to delete your project?' } %>
           <% end %>
         </div>
       </div>
-  </div>
+    </div>
   <% end %>
 </div>
