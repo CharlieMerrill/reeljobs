@@ -54,7 +54,7 @@
       <% if current_user == @project.user %>
         <h3>Add job <i class="fa fa-plus" aria-hidden="true"></i></h3>
         <%= simple_form_for [@project, @job] do |f| %>
-          <%= f.input :skill_id , collection: Skill.all  %>
+          <%= f.input :skill_id , collection: Skill.all.order("title ASC")  %>
           <%= f.submit "Add job", class: 'btn btn-primary' %>
         <% end %>
       <% else %>
@@ -64,8 +64,7 @@
       <% @project.jobs.each do |job| %>
         <div class="list-group">
           <li class='list-group-item'>
-          <% skill = Skill.find(job.skill_id) %>
-          <h4 class="list-group-item-heading"> <%= skill.title %></h4>
+          <h4 class="list-group-item-heading"> <%= Skill.find(job.skill_id).title %></h4>
           <%if current_user == @project.user %>
             <h4><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, job_path(job), class: 'btn btn-danger del' , method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %></h4>
             <% job.responses.each do |response|%>
