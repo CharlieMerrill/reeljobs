@@ -8,14 +8,27 @@
   background-color: white;
 }
 
-.jobs-title {
-  border-bottom: 1px solid #BFBFBF;
-  padding-bottom: 10px;
-}
-
 .container_searchbar {
   margin-top: -2px;
   height: 30px;
+  color: #FAFAFA;
+  text-shadow: 2px 2px 2px #464646;
 }
 
+.card-avatar {
+  border-radius: 50%;
+}
 
+.result {
+  border: 1px solid #515151;
+  height: 150px;
+}
+
+.host {
+  padding: 20px;
+
+}
+
+ul {
+  list-style-type: none;
+}
