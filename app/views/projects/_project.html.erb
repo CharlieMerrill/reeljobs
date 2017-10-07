@@ -1,20 +1,28 @@
-<% projects_by_subject.each do |project_by_subject| %>
-	<div class="boxx" style="position: relative; display:flex-center;">
-    <div class="col-xs-12 col-sm-4">
-		  <%= link_to project_path(project_by_subject.project) do %>
-		    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path('card-placehold.jpg') %>);">
-		  		<div class="card-category"><%= project_by_subject.project.location %></div>
-		  		<div class="card-description">
-		    		<h2><%= project_by_subject.project.title %></h2>
-		    		<p><%= project_by_subject.project.schedule %></p>
-		    	</div>
-		    	<!-- <img class="card-user" src="https://placehold.it/300x300.png"> -->
-          <%= cl_image_tag user_avatar(project_by_subject.project.user), crop: :fill, class: "card-user" %>
-		    </div>
-			  <div class="card-footer" style="border: 1px solid #999999;">
-        	<h3><%= project_by_subject.skill.title %></h3>
-        </div>
+<% projects_by_subject.each do |p| %>
+	<div style="position: relative; display:flex-center;">
+    <ul>
+		  <%= link_to project_path(p.project) do %>
+        <li>
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-3 result host">
+                <%= cl_image_tag user_avatar(p.project.user), crop: :fill, height: '50', width: '50', class: 'card-avatar' %>
+                <p>Host: <%= p.project.user.first_name %> <%= p.project.user.last_name %></p>
+              </div>
+              <div class="col-xs-5 result title-description">
+                <h2><%= p.project.title %></h2>
+                <p><%= p.project.description %></p>
+              </div>
+              <div class="col-xs-4 result li-info">
+                <h4><%= p.skill.title %></h4>
+                <p><i class="fa fa-calendar" aria-hidden="true"></i> <%= p.project.schedule %></p>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= p.project.location %></p>
+                <p><i class="fa fa-info-circle" aria-hidden="true"></i> <%= p.project.genre %></p>
+              </div>
+            </div>
+          </div>
+        </li>
 		  <% end %>
-		</div>
+    </ul>
 	</div>
 <% end %>
