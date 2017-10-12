@@ -4,12 +4,34 @@
 @import "edit";
 @import "new";
 
-.body {
-  background-color: white;
+.project-top {
+  margin-top: -20px;
+}
+
+.project-middle {
+  border-top: 1px solid white;
+  padding-top: 8px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.user-card-display {
+  padding-top: 30px;
 }
 
 .container_searchbar {
-  margin-top: -2px;
+  margin-top: 60px;
+  margin-left: 25px;
   height: 30px;
   color: #FAFAFA;
   text-shadow: 2px 2px 2px #464646;
@@ -19,16 +41,36 @@
   border-radius: 50%;
 }
 
-.result {
-  border: 1px solid #515151;
-  height: 150px;
-}
-
-.host {
-  padding: 20px;
-
-}
-
 ul {
   list-style-type: none;
+}
+
+.results-container {
+  margin-top: -50px;
+  height: 65vh;
+  overflow-x: hidden;
+}
+
+.project-card {
+  color: white;
+  width: 70vw;
+  text-shadow: 2px 2px 2px #464646;
+  margin: 10px auto;
+}
+
+.project-card:hover {
+  font-weight: bold;
+  h2 {
+    font-weight: bold;
+  }
+  h4 {
+    font-weight: bold;
+  }
+}
+
+.thick-line {
+  border: none;
+  height: 2px;
+  color: white;
+  background-color: white;
 }

@@ -1,4 +1,4 @@
-<div class="top-image"><%= image_tag('search-banner.jpeg', height: '200', width: '100%') %>
+<div class="banner banner-home" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(<%=image_path('project-index.jpg')%>">
   <div class="banner-content">
     <div class="container">
       <div class="container_searchbar row">
@@ -25,16 +25,17 @@
           <% end  %>
         </div>
       </div>
+    </div>
+
+    <div class="container results-container">
+      <% if @jobs.any? %>
+        <%= render "project" , projects_by_subject: @jobs %>
+      <% else %>
+        <p>There are no projects available.</p>
+      <% end %>
+    </div>
+
   </div>
-</div>
-
-
-  <% if @jobs.any? %>
-  	<%= render "project" , projects_by_subject: @jobs %>
-  <% else %>
-  	<p>There are no projects available.</p>
-  <% end %>
-
 </div>
 
 
