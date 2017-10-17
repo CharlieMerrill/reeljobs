@@ -16,28 +16,65 @@
   color: #878787;
 }
 
-a {
-  text-decoration: none;
-  color: black ;
-}
-
-a:hover {
-  text-decoration: none;
-  color: black ;
-}
-
 .title {
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 5px;
-  margin: 5px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  padding: 20px;
-  border-bottom: 1px solid #BDBDBD;
+  margin: -130px 30vw 160px 0px;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  h1 {
+    font-size: 70px;
+    font-weight: bold;
+  } a {
+    color: white;
+  } a:hover {
+    text-shadow: 6px 6px 6px black;
+  } h2 {
+    font-size: 50px;
+  }
 }
 
 .align-right {
   text-align: right;
+}
+
+.app-btn {
+  width: 90px;
+}
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin-top: 10px;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ccc;
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    border: 1px solid #eee;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
 }
