@@ -74,6 +74,40 @@
   text-align: left;
 }
 
-.reviews {
-  margin-top: 10px;
+.review-details {
+  color: #7F7F7F;
+  font-size: 12px;
+  margin-top: -10px;
+}
+
+.review-content {
+  border: 1px solid #CCCCCC;
+  padding: 2px 8px 6px 12px;
+}
+
+.review-title {
+  margin-bottom: -8px;
+}
+
+.users-project {
+  border: 1px solid #CCCCCC;
+  padding: 6px;
+  height: 40px;
+}
+
+.user-center {
+  text-align: center;
+}
+
+.user-right {
+  text-align: right;
+}
+
+.response-x {
+  color: #961814;
+}
+
+.response-x:hover {
+  color: #EF0006;
+  text-decoration: none;
 }
