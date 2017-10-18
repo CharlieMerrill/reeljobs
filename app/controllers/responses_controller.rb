@@ -19,6 +19,7 @@ class ResponsesController < ApplicationController
   end
 
   def destroy
+    @response = Response.find(params[:id])
     @response.delete
   end
 
