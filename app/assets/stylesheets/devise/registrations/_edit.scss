@@ -2,21 +2,14 @@
   width: 50%;
   color: white;
   text-shadow: 1px 1px 1px #828282;
-  margin-top: -5%;
+  height: 800px;
   h2 {
     text-align: center;
   }
 }
 
-h2 {
-  text-align: center;
-}
-
-.edit-banner{
-  height: 150vh;
-}
-
 .devise-shared-links a {
+  display: flex;
   color: white;
   text-shadow: 1px 1px 1px #828282;
 }
@@ -37,3 +30,11 @@ h2 {
 .wide-button {
   width: 100%;
 }
+
+@media only screen and (max-width: 768px) {
+  .edit-container {
+    width: 95vw;
+    height: 700px;
+  }
+}
+

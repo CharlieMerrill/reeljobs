@@ -2,7 +2,11 @@
   <div class="container container-form">
     <div class="row">
       <div class="col-xs-12">
-        <h1 class="form-title">If you film it, they will come.</h1>
+        <% if params[:action] == 'edit' || params[:action] == 'update' %>
+          <h1 class="form-title">Edit Project</h1>
+        <% else %>
+          <h1 class="form-title">New Project</h1>
+        <% end %>
       </div>
     </div>
     <hr class="line-shadow">
@@ -41,6 +45,6 @@
           <% end %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
