@@ -2,7 +2,7 @@
   width: 50%;
   color: white;
   text-shadow: 1px 1px 1px #828282;
-  margin-top: -10%;
+  height: 650px;
   h2 {
     text-align: center;
   }
@@ -18,15 +18,23 @@
   text-shadow: 1px 1px 1px #828282;
 }
 
-.form-actions {
-  display: flex;
-  justify-content: center;
-}
-
 .line-shadow {
   box-shadow: 1px 1px 1px #828282;
 }
 
 .wide-button {
   width: 100%;
+}
+
+.password-small {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  text-shadow: 1px 1px 1px #828282;
+}
+
+@media only screen and (max-width: 768px) {
+  .password-container {
+    width: 90vw;
+  }
 }
