@@ -16,10 +16,66 @@
 .tagline {
   color: white;
   text-shadow: 1px 1px 1px grey;
+  text-align: center;
 }
 
 .search-home {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #2E92E9;
+}
+
+.home-description {
+  width: 100%;
+  background-color: #2E92E9;
+  color: white;
+  text-align: center;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-top: -30px;
+}
+
+.home-info {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-icon {
+  opacity: 0.35;
+  padding-top: 10px;
+}
+
+.bigger-home-icon {
+  border-radius: 5px;
+  padding-top: 5px;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  text-align: center;
+  h4 {
+    color: #2E92E9;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #E5E5E5;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .search-home {
+    width: 80vw;
+    margin: 0 auto;
+  } .home-info {
+    display: block;
+    height: 8vh;
+  } .bigger-home-icon {
+    text-align: center;
+    height: 15vh;
+  } .home-description {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    margin: 0 auto;
+  }
 }

@@ -1,7 +1,29 @@
 <div class="banner banner-home" style="background-image: url(<%=image_path('camera_banner.jpg')%>">
   <div class="banner-content">
     <h3 class="tagline">Find work experience on film projects.</h3>
-    <%= link_to "Search For Projects", projects_path, class:"btn btn-primary btn-lg search-home" %>
+    <%= link_to "Search For Projects", projects_path, class:"btn btn-primary search-home" %>
+  </div>
+</div>
+<div class="home-description">
+  <%= image_tag('reeljobs2.png', height: "120", class: "bigger-home-icon") %>
+  <p>Reel Jobs is a website that unites local filmmakers. Post a project and find people who want to help you complete it. Search for projects to build up your reputation and gain experience.</p>
+  <br>
+</div>
+<div class="home-info">
+  <div class="info-box">
+    <%= image_tag('community.png', height: "70", class: "home-icon") %>
+    <h4>Community</h4>
+    <p>Meet local filmmakers.</p>
+  </div>
+  <div class="info-box">
+    <%= image_tag('experience.svg', height: "70", class: "home-icon") %>
+    <h4>Experience</h4>
+    <p>Build a portfolio reel.</p>
+  </div>
+  <div class="info-box">
+    <%= image_tag('goals.png', height: "70", class: "home-icon") %>
+    <h4>Goals</h4>
+    <p>Complete your projects.</p>
   </div>
 </div>
 
