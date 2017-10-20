@@ -1,3 +1,11 @@
+.user-banner {
+  height: 120px;
+}
+
+.banner {
+  overflow: hidden;
+}
+
 .profile-info {
   margin-top: -50px;
   margin-left: 50px;
@@ -83,24 +91,43 @@
 .review-content {
   border: 1px solid #CCCCCC;
   padding: 2px 8px 6px 12px;
+  width: 50vw;
 }
 
 .review-title {
   margin-bottom: -8px;
 }
 
-.users-project {
+.user-project-card {
   border: 1px solid #CCCCCC;
   padding: 6px;
-  height: 40px;
+  color: #4C4C4C;
+  width: 50vw;
+  text-shadow: 1px 1px 1px #CCCCCC;
+}
+
+.user-project-card:hover {
+  font-weight: bold;
+  h4 {
+    font-weight: bold;
+  }
+}
+
+.user-bottom-row {
+  margin-top: -5px;
 }
 
 .user-center {
   text-align: center;
+  margin-bottom: -10px;
 }
 
 .user-right {
   text-align: right;
+}
+
+.user-left {
+  text-align: left;
 }
 
 .response-x {
@@ -110,4 +137,22 @@
 .response-x:hover {
   color: #EF0006;
   text-decoration: none;
+}
+
+.mini-menu {
+  width: 75vw;
+  margin-left: -70px;
+}
+
+@media only screen and (max-width: 768px) {
+  .user-bottom-row p {
+    margin-bottom: 10px;
+    text-align: left;
+  } .review-content {
+    width: 80vw;
+    margin: 0 auto;
+  } .user-project-card {
+    width: 80vw;
+
+  }
 }

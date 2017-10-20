@@ -1,7 +1,5 @@
-<div class="top-image"><%= image_tag('hollywood.jpeg', height: '120', width: '100%') %></div>
-<div class="row twitter-bar hidden-xs">
+<div class="banner"><%= image_tag('hollywood.jpeg', class: "user-banner") %></div>
 
-</div>
 <div class="container">
   <div class="row">
     <div class="profile-info col-xs-4">
@@ -15,23 +13,46 @@
         <% if @user == current_user%>
           <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <%= link_to 'Edit', edit_user_registration_path(@user), class: "clickable-name" %></p>
         <% end %>
+        <div class="row mini-menu">
+          <div class="col-xs-4 hidden-sm hidden-md hidden-lg hidden-xl">
+            <div class="first-tab tab-box active">
+              <a class="profile tab active" data-target="#bio">
+                <p class="button-word">About Me</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-4 hidden-sm hidden-md hidden-lg hidden-xl">
+            <div class="tab-box">
+              <a class="profile tab" data-target="#reviews">
+                <p class="button-word">Reviews</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-4 hidden-sm hidden-md hidden-lg hidden-xl">
+            <div class="tab-box">
+              <a class="profile tab" data-target="#projects">
+                <p class="button-word">Projects</p>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-2 col-md-1 hidden-xs">
       <div class="first-tab tab-box active">
         <a class="profile tab active" data-target="#bio">
           <p class="button-word">About Me</p>
         </a>
       </div>
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-2 col-md-1 hidden-xs">
       <div class="tab-box">
         <a class="profile tab" data-target="#reviews">
           <p class="button-word">Reviews</p>
         </a>
       </div>
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-2 col-md-1 hidden-xs">
       <div class="tab-box">
         <a class="profile tab" data-target="#projects">
           <p class="button-word">Projects</p>
@@ -39,7 +60,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-7">
+      <div class="col-xs-12 col-sm-7">
         <div class="tab-content active" id="bio">
           <p><%= @user.bio %></p>
           <% if @user.bio.to_s.empty? %>
@@ -66,42 +87,7 @@
           <% end %>
         </div>
         <div class="tab-content hidden" id="projects">
-          <% project_count = 0 %>
-          <% @user.projects.each do |project| %>
-            <div class="users-project">
-              <%= link_to project, class: "clickable-name" do %>
-                <%= project.title %>
-              <% end %>
-            </div>
-            <br>
-            <% project_count += 1 %>
-          <% end %>
-          <% @user.responses.each do |response| %>
-            <div class="users-project">
-              <div class="row">
-                <div class="col-xs-4">
-                  <%= link_to response.job.project, class: "clickable-name" do %>
-                    <%= response.job.project.title %>
-                  <% end %>
-                </div>
-                <div class="col-xs-4 user-center">
-                  <% if @user == current_user %>
-                    <%= response.status.capitalize %>
-                  <% end %>
-                </div>
-                <div class="col-xs-4 user-right">
-                  <% if @user == current_user %>
-                    <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, response_path(response), class: 'response-x' , method: :delete, data: { confirm: 'Are you sure you want to delete this project from your profile? <br /> This will also delete your application with this project.' } %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-            <br>
-            <% project_count += 1 %>
-          <% end %>
-          <% if project_count === 0 %>
-            <p><i>No projects yet.</i></p>
-          <% end %>
+          <%= render "project" %>
         </div>
       </div>
     </div>

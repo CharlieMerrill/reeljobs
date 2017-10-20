@@ -1,0 +1,68 @@
+<% project_count = 0 %>
+<% @user.projects.each do |p| %>
+  <div style="position: relative; display:flex-center;">
+    <ul>
+      <%= link_to project_path(p) do %>
+        <li>
+          <div class="container user-project-card">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="user-center"><%= p.title %></h4>
+              </div>
+            </div>
+            <hr>
+            <div class="row user-bottom-row">
+              <div class="col-xs-12 col-sm-4">
+                <p class="user-left"><i class="fa fa-calendar" aria-hidden="true"></i> <%= p.schedule.strftime("%B %e, %Y") %></p>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <p class="user-center"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= p.location %></p>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <p class="user-right"><i class="fa fa-info-circle" aria-hidden="true"></i> <%= p.genre %></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <% project_count += 1 %>
+<% end %>
+
+<% @user.responses.each do |r| %>
+  <% if r.status === 'accepted' %>
+    <div style="position: relative; display:flex-center;">
+      <ul>
+        <%= link_to r.job.project do %>
+          <li>
+            <div class="container user-project-card">
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4 class="user-center"><%= r.job.project.title %></h4>
+                </div>
+              </div>
+              <hr>
+              <div class="row user-bottom-row">
+                <div class="col-xs-12 col-sm-4">
+                  <p class="user-left"><i class="fa fa-calendar" aria-hidden="true"></i> <%= r.job.project.schedule.strftime("%B %e, %Y") %></p>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <p class="user-center"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= r.job.project.location %></p>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <p class="user-right"><i class="fa fa-info-circle" aria-hidden="true"></i> <%= r.job.project.genre %></p>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <% project_count += 1 %>
+  <% end %>
+<% end %>
+
+<% if project_count === 0 %>
+  <p><i>No projects yet.</i></p>
+<% end %>
