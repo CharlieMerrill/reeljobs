@@ -8,6 +8,10 @@
   margin-top: -20px;
 }
 
+.search-banner {
+  height: 650px;
+}
+
 .project-middle {
   border-top: 1px solid white;
   padding-top: 8px;
@@ -30,7 +34,7 @@
 }
 
 .container_searchbar {
-  margin-top: 60px;
+  margin-top: 20px;
   margin-left: 25px;
   height: 30px;
   color: #FAFAFA;
@@ -47,7 +51,7 @@ ul {
 
 .results-container {
   margin-top: -50px;
-  height: 65vh;
+  height: 420px;
   overflow-x: hidden;
 }
 
@@ -73,4 +77,19 @@ ul {
   height: 2px;
   color: white;
   background-color: white;
+}
+
+@media only screen and (max-width: 992px) {
+  .container_searchbar {
+    height: 140px;
+    width: 80vw;
+    margin: 0 auto;
+  } #search_button {
+    text-align: center;
+    margin-bottom: 10px;
+  } .search-banner {
+    height: 800px;
+  } .results-container {
+    margin-left: -35px;
+  }
 }
