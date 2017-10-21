@@ -12,6 +12,10 @@ class ResponsesController < ApplicationController
     end
   end
 
+  def index
+    @response = Response.all
+  end
+
   def update
     @response.update(response_params)
     @project = @response.job.project
