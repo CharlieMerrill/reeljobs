@@ -1,0 +1,81 @@
+<div class="banner app-banner" style="background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(<%=image_path('applications.jpeg') %>)">
+  <div class="container">
+    <h1 class="app-title">Applications</h1>
+    <div class="app-box">
+      <div class="inner-app-box">
+        <div class="row app-top hidden-xs">
+          <div class="col-xs-3">
+            <p>Title:</p>
+          </div>
+          <div class="col-xs-3">
+            <p>Role:</p>
+          </div>
+          <div class="col-xs-3">
+            <p>Status:</p>
+          </div>
+          <div class="col-xs-3">
+            <p>Delete:</p>
+          </div>
+        </div>
+        <div class="app-bottom hidden-xs">
+          <% app_count = 0 %>
+          <% current_user.responses.each do |r| %>
+            <div class="row">
+              <div class="col-xs-3">
+                <%= link_to project_path(r.job.project) do %>
+                  <p><%= r.job.project.title %></p>
+                <% end %>
+              </div>
+              <div class="col-xs-3">
+                <p><%= r.job.skill.title %></p>
+              </div>
+              <div class="col-xs-3">
+                <% if r.status === 'accepted' %>
+                  <p class="btn btn-success"><%= r.status.capitalize %></p>
+                <% elsif r.status === 'pending' %>
+                  <p class="btn btn-primary"><%= r.status.capitalize %></p>
+                <% else  %>
+                  <p class="btn btn-danger"><%= r.status.capitalize %></p>
+                <% end %>
+              </div>
+              <div class="col-xs-3">
+                <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, project_path(r.job.project), class: "delete-btn", method: :delete, data: { confirm: 'Are you sure you want to delete your application?' } %>
+              </div>
+            </div>
+            <hr>
+            <% app_count += 1 %>
+          <% end %>
+          <% if app_count === 0 %>
+            <p>No current applications.</p>
+          <% end %>
+        </div>
+        <div class="app-bottom hidden-sm hidden-md hidden-lg hidden-xl">
+          <% app_count_mobile = 0 %>
+          <% current_user.responses.each do |r| %>
+            <div class="row">
+              <%= link_to project_path(r.job.project) do %>
+                <p><%= r.job.project.title %></p>
+              <% end %>
+              <p><%= r.job.skill.title %></p>
+              <% if r.status === 'accepted' %>
+                <p class="btn btn-success"><%= r.status.capitalize %></p>
+              <% elsif r.status === 'pending' %>
+                <p class="btn btn-primary"><%= r.status.capitalize %></p>
+              <% else  %>
+                <p class="btn btn-danger"><%= r.status.capitalize %></p>
+              <% end %>
+              <%= link_to project_path(r.job.project), class: "delete-btn", method: :delete, data: { confirm: 'Are you sure you want to delete your application?' } do %>
+                <p><br />Delete Application</p>
+              <% end %>
+            </div>
+            <hr>
+            <% app_count_mobile += 1 %>
+          <% end %>
+          <% if app_count_mobile === 0 %>
+            <p>No current applications.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

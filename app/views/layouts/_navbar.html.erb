@@ -32,6 +32,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to responses_path do %>
+                <i class="fa fa-envelope"></i>  <%= t(".responses", default: "Applications") %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
@@ -65,6 +70,11 @@
           <li>
             <%= link_to user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" do %>
               <p><i class="fa fa-user"></i> Profile</p>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to responses_path do %>
+              <i class="fa fa-envelope"></i>  <%= t(".responses", default: "Applications") %>
             <% end %>
           </li>
           <li>

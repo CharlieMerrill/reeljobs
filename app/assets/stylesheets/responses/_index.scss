@@ -1,0 +1,73 @@
+.app-banner {
+  height: 580px;
+}
+
+.app-title {
+  color: white;
+  text-shadow: 2px 2px 2px #3F3F3F;
+  text-align: center;
+  font-size: 60px;
+  margin-top: -100px;
+}
+
+.app-box {
+  background-color: #F3F3F3;
+  border-radius: 5px;
+  padding: 30px 40px;
+  width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  height: 400px;
+}
+
+.delete-btn {
+  color: #A00C0F;
+}
+
+.delete-btn:hover {
+  color: #D90C13;
+}
+
+.inner-app-box {
+  width: 60vw;
+  border-radius: 5px;
+}
+
+.app-top {
+  background-color: #4D4A4A;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+  font-weight: bold;
+  height: 35px;
+  padding-top: 5px;
+  width: 62vw;
+  text-align: center;
+}
+
+.app-bottom {
+  overflow-x: hidden;
+  height: 290px;
+  background-color: white;
+  width: 62vw;
+  margin-left: -15px;
+  padding: 5px;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+@media only screen and (max-width: 576px) {
+  .app-box {
+    width: 90vw;
+  } .inner-app-box {
+    width: 80vw;
+  } .app-top {
+    width: 82vw;
+  } .app-bottom {
+    width: 82vw;
+  } .app-title {
+    font-size: 40px;
+  }
+}

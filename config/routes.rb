@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :responses, only: [:create]
   end
 
-  resources :responses, only: [:destroy, :update]
+  resources :responses, only: [:destroy, :update, :index]
 
   resources :pages, only: [:show]
 end
