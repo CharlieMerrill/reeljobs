@@ -1,0 +1,63 @@
+<% @project.jobs.each do |job| %>
+  <button class="accordion"><%= Skill.find(job.skill_id).title %></button>
+    <div class="panel">
+      <%if current_user == @project.user %>
+        <h5><%= link_to 'Delete Job'.html_safe, job_path(job), class: 'btn btn-danger del' , method: :delete, data: { confirm: 'Are you sure you want to delete this job? All applications for this job will be lost.' } %></h5>
+        <% job.responses.each do |response|%>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6">
+              <%= link_to response.user, class: "clickable-name" do %>
+                <%= response.user.first_name %>
+                <%= response.user.last_name %>
+              <% end %>
+            </div>
+            <div class="col-sm-6">
+              <% if response.status == "pending" %>
+                <%= simple_form_for [response] do |f| %>
+                  <%= f.input :status, :as => :hidden, :input_html => { :value => "accepted" } %>
+                  <%= f.submit "Accept", class: "btn btn-success app-btn" %>
+                <% end %>
+                <br>
+                <%= simple_form_for [response] do |f| %>
+                  <%= f.input :status, :as => :hidden, :input_html => { :value => "denied" } %>
+                  <%= f.submit "Reject", class: "btn btn-danger app-btn" %>
+                <% end %>
+                <br>
+              <% else %>
+                <p><%= response.status.capitalize %></p>
+                <% if response.status == "accepted" %>
+                  <% if job.job_review %>
+                    <% review = job.job_review %>
+                    <div class="review">
+                      <p><% review.rating.times do %><i style="color: #e5d200;" class="fa fa-star" aria-hidden="true"></i><% end %></p>
+                      <p><%= review.content %></p>
+                    </div>
+                  <% else %>
+                    <%= simple_form_for [job, @job_review] do |f| %>
+                      <%= f.input :content %>
+                      <%= f.input :rating, collection: [1,2,3,4,5] %>
+                      <%= f.submit "Add a review", class: "btn btn-primary" %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% elsif user_signed_in? %>
+        <br>
+        <% if (job.responses & current_user.responses).empty? %>
+          <%= simple_form_for [job, Response.new] do |f| %>
+            <%= f.input :status, :as => :hidden, :input_html => { :value => "pending"} %>
+            <%= f.submit "Apply", class: "btn btn-primary" %>
+          <% end %>
+        <% else %>
+          <p class="btn btn-success">Application Sent</p>
+          <br>
+        <% end %>
+        <br>
+      <% end %>
+      <p> <%= "#{job.responses.count} people have applied for this job." %></p>
+    </div>
+  <% end %>
