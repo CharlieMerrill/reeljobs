@@ -11,7 +11,7 @@
               </div>
               <div class="col-xs-3">
                 <div class="user-card-display text-center">
-                  <%= cl_image_tag user_avatar(p.project.user), crop: :fill, height: '50', width: '50', class: 'card-avatar' %>
+                  <%= image_tag 'avatar.jpg', crop: :fill, height: '50', width: '50', class: 'card-avatar' %>
                   <p>Host: <%= p.project.user.first_name %> <%= p.project.user.last_name %></p>
                 </div>
               </div>
