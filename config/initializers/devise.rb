@@ -1,6 +1,9 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+  config.secret_key = '1fa09b1772fddf7c8ac7a46258783bb7afdc95b62c77e43b1728f8802d582536b904de569eb72632506b3f9e94b39f469367b96d1a7c0e722319b39ca433fce5'
+
   config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
     scope: 'email',
     info_fields: 'email, first_name, last_name',
