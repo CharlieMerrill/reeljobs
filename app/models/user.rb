@@ -26,10 +26,9 @@ class User < ApplicationRecord
     return user
   end
 
-  has_many :projects
-  has_many :applicants
+  has_many :projects, dependent: :destroy
   has_many :user_skills
-  has_many :responses
+  has_many :responses, dependent: :destroy
   has_attachment :profile_picture
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true

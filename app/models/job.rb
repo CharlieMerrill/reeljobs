@@ -2,8 +2,8 @@ class Job < ApplicationRecord
   belongs_to :project
   belongs_to :skill
   validates :skill_id, presence: true
-  has_many :responses
-  has_one :job_review
+  has_many :responses, dependent: :destroy
+  has_one :job_review, dependent: :destroy
 
 
 

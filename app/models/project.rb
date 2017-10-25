@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :host_reviews
-  has_many :jobs
+  has_many :host_reviews, dependent: :destroy
+  has_many :jobs, dependent: :destroy
   validates :title, presence: true
   validates :description, presence: true
   validates :schedule, presence: true
