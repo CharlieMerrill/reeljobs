@@ -27,7 +27,6 @@ class User < ApplicationRecord
   end
 
   has_many :projects, dependent: :destroy
-  has_many :applicants
   has_many :user_skills
   has_many :responses, dependent: :destroy
   has_attachment :profile_picture
