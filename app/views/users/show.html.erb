@@ -4,7 +4,7 @@
   <div class="row">
     <div class="profile-info col-xs-4">
       <div class="profile-info-content">
-        <%= image_tag 'avatar.jpg', width: 150, height: 150, class: "profile-avatar" %>
+        <%= cl_image_tag user_avatar(@user), crop: :fill, width: 150, height: 150, class: "profile-avatar" %>
         <h5><%= @user.first_name %> <%= @user.last_name%></h4>
         <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.location %></p>
         <p><i class="fa fa-calendar" aria-hidden="true"></i> Joined <%= @user.created_at.strftime("%B %Y") %></p>
