@@ -58,6 +58,10 @@
         <% end %>
         <br>
       <% end %>
-      <p> <%= "#{job.responses.count} people have applied for this job." %></p>
+      <% if job.responses.count != 1 %>
+        <p> <%= "#{job.responses.count} people have applied for this job." %></p>
+      <% else %>
+        <p> 1 person has applied for this job.</p>
+      <% end %>
     </div>
   <% end %>
