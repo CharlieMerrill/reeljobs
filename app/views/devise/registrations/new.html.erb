@@ -19,7 +19,12 @@
     <% end %>
     <br>
     <div class="devise-shared-links">
-      <%= render "devise/shared/links" %>
+      <a href=<%= user_facebook_omniauth_authorize_path %> class="fb-btn">
+        <p><i class="fa fa-facebook-square"></i> Sign in with Facebook</p>
+        <br>
+        <br>
+        <br>
+      </a>
     </div>
   </div>
 </div>
