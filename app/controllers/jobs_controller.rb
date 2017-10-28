@@ -1,14 +1,10 @@
 class JobsController < ApplicationController
 
   def create
-
     @job = Job.new(job_params)
     @job.project_id = params[:project_id]
-    if @job.save
-      redirect_to project_path(Project.find(params[:project_id]))
-    else
-      render 'projects/show'
-    end
+    @job.save
+    redirect_to project_path(Project.find(params[:project_id]))
   end
 
   def destroy
