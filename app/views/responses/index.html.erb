@@ -39,7 +39,7 @@
                 <% end %>
               </div>
               <div class="col-xs-3">
-                <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, project_path(r.job.project), class: "delete-btn", method: :delete, data: { confirm: 'Are you sure you want to delete your application?' } %>
+                <%= link_to '<i class="fa fa-times-circle" aria-hidden="true"></i>'.html_safe, r.destroy, class: "delete-btn", data: { confirm: 'Are you sure you want to delete your application?' } %>
               </div>
             </div>
             <hr>
